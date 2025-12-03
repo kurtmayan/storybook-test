@@ -1,6 +1,5 @@
 import "@/app/globals.css";
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { fn } from "storybook/test";
 import { Badge as UIBadge } from "@/components/ui/badge";
 
 const meta = {
