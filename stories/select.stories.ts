@@ -7,6 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import * as React from "react";
 
 const meta = {
   title: "shadcn/UI Components",
@@ -30,17 +31,21 @@ type Story = StoryObj<typeof meta>;
 
 export const Select: Story = {
   render: (args) => {
-    return (
-      <UISelect {...args}>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Theme" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="light">Light</SelectItem>
-          <SelectItem value="dark">Dark</SelectItem>
-          <SelectItem value="system">System</SelectItem>
-        </SelectContent>
-      </UISelect>
+    return React.createElement(
+      UISelect,
+      { ...args },
+      React.createElement(
+        SelectTrigger,
+        { className: "w-[180px]" },
+        React.createElement(SelectValue, { placeholder: "Theme" })
+      ),
+      React.createElement(
+        SelectContent,
+        null,
+        React.createElement(SelectItem, { value: "light" }, "Light"),
+        React.createElement(SelectItem, { value: "dark" }, "Dark"),
+        React.createElement(SelectItem, { value: "system" }, "System")
+      )
     );
   },
 };
